@@ -1,0 +1,316 @@
+{
+  "groups": [
+    {
+      "id": 1,
+      "letter": "A",
+      "teams": [
+        {
+          "id": 1,
+          "name": "Rusia",
+          "prefix": "rus",
+          "favorite": true,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/rus",
+          "picked": false
+        },
+        {
+          "id": 2,
+          "name": "Arabia Saudí",
+          "prefix": "ksa",
+          "favorite": false,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/ksa",
+          "picked": false
+        },
+        {
+          "id": 3,
+          "name": "Egipto",
+          "prefix": "egy",
+          "favorite": false,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/egy",
+          "picked": false
+        },
+        {
+          "id": 4,
+          "name": "Uruguay",
+          "prefix": "uru",
+          "favorite": true,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/uru",
+          "picked": false
+        }
+      ],
+      "closed": false
+    },
+    {
+      "id": 2,
+      "letter": "B",
+      "teams": [
+        {
+          "id": 5,
+          "name": "Portugal",
+          "prefix": "por",
+          "favorite": true,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/por",
+          "picked": false
+        },
+        {
+          "id": 6,
+          "name": "España",
+          "prefix": "esp",
+          "favorite": true,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/esp",
+          "picked": false
+        },
+        {
+          "id": 7,
+          "name": "Marruecos",
+          "prefix": "mar",
+          "favorite": false,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/mar",
+          "picked": false
+        },
+        {
+          "id": 8,
+          "name": "RI de Irán",
+          "prefix": "irn",
+          "favorite": false,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/irn",
+          "picked": false
+        }
+      ],
+      "closed": false
+    },
+    {
+      "id": 3,
+      "letter": "C",
+      "teams": [
+        {
+          "id": 9,
+          "name": "Francia",
+          "prefix": "fra",
+          "favorite": true,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/fra",
+          "picked": false
+        },
+        {
+          "id": 10,
+          "name": "Australia",
+          "prefix": "aus",
+          "favorite": false,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/aus",
+          "picked": false
+        },
+        {
+          "id": 11,
+          "name": "Perú",
+          "prefix": "per",
+          "favorite": false,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/per",
+          "picked": false
+        },
+        {
+          "id": 12,
+          "name": "Dinamarca",
+          "prefix": "den",
+          "favorite": true,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/den",
+          "picked": false
+        }
+      ],
+      "closed": false
+    },
+    {
+      "id": 4,
+      "letter": "D",
+      "teams": [
+        {
+          "id": 13,
+          "name": "Argentina",
+          "prefix": "arg",
+          "favorite": true,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/arg",
+          "picked": false
+        },
+        {
+          "id": 14,
+          "name": "Islandia",
+          "prefix": "isl",
+          "favorite": false,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/isl",
+          "picked": false
+        },
+        {
+          "id": 15,
+          "name": "Croacia",
+          "prefix": "cro",
+          "favorite": true,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/cro",
+          "picked": false
+        },
+        {
+          "id": 16,
+          "name": "Nigeria",
+          "prefix": "nga",
+          "favorite": false,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/nga",
+          "picked": false
+        }
+      ],
+      "closed": false
+    },
+    {
+      "id": 5,
+      "letter": "E",
+      "teams": [
+        {
+          "id": 17,
+          "name": "Brasil",
+          "prefix": "bra",
+          "favorite": true,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/bra",
+          "picked": false
+        },
+        {
+          "id": 18,
+          "name": "Suiza",
+          "prefix": "sui",
+          "favorite": true,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/sui",
+          "picked": false
+        },
+        {
+          "id": 19,
+          "name": "Costa Rica",
+          "prefix": "crc",
+          "favorite": false,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/crc",
+          "picked": false
+        },
+        {
+          "id": 20,
+          "name": "Serbia",
+          "prefix": "srb",
+          "favorite": false,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/srb",
+          "picked": false
+        }
+      ],
+      "closed": false
+    },
+    {
+      "id": 6,
+      "letter": "F",
+      "teams": [
+        {
+          "id": 21,
+          "name": "Alemania",
+          "prefix": "ger",
+          "favorite": true,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/ger",
+          "picked": false
+        },
+        {
+          "id": 22,
+          "name": "México",
+          "prefix": "mex",
+          "favorite": true,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/mex",
+          "picked": false
+        },
+        {
+          "id": 23,
+          "name": "Suecia",
+          "prefix": "swe",
+          "favorite": false,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/swe",
+          "picked": false
+        },
+        {
+          "id": 24,
+          "name": "República de Corea",
+          "prefix": "kor",
+          "favorite": false,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/kor",
+          "picked": false
+        }
+      ],
+      "closed": false
+    },
+    {
+      "id": 7,
+      "letter": "G",
+      "teams": [
+        {
+          "id": 25,
+          "name": "Bélgica",
+          "prefix": "bel",
+          "favorite": true,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/bel",
+          "picked": false
+        },
+        {
+          "id": 26,
+          "name": "Panamá",
+          "prefix": "pan",
+          "favorite": false,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/pan",
+          "picked": false
+        },
+        {
+          "id": 27,
+          "name": "Túnez",
+          "prefix": "tun",
+          "favorite": false,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/tun",
+          "picked": false
+        },
+        {
+          "id": 28,
+          "name": "Inglaterra",
+          "prefix": "eng",
+          "favorite": true,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/eng",
+          "picked": false
+        }
+      ],
+      "closed": false
+    },
+    {
+      "id": 8,
+      "letter": "H",
+      "teams": [
+        {
+          "id": 29,
+          "name": "Polonia",
+          "prefix": "pol",
+          "favorite": true,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/pol",
+          "picked": false
+        },
+        {
+          "id": 30,
+          "name": "Senegal",
+          "prefix": "sen",
+          "favorite": false,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/sen",
+          "picked": false
+        },
+        {
+          "id": 31,
+          "name": "Colombia",
+          "prefix": "col",
+          "favorite": true,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/col",
+          "picked": false
+        },
+        {
+          "id": 32,
+          "name": "Japón",
+          "prefix": "jpn",
+          "favorite": false,
+          "flag_image": "https://fsprdcdnpublic.azureedge.net/global-pictures/flags-fwc2018-3/jpn",
+          "picked": false
+        }
+      ],
+      "closed": false
+    }
+  ]
+}
