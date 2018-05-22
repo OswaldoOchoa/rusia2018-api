@@ -24,9 +24,9 @@ def raffleling():
   while len(allteams) !=0 or len(breaksituation) !=0:
     if repeated:
       repeated=False
-      input("Presiona Enter")
+      input('Presiona Enter')
     else:
-      input("El siguiente equipo es para: " + players[iter(n)][0])
+      input('El siguiente equipo es para: ' + players[iter(n)][0])
     team = choice(allteams)
     if team in goodteams and players[iter(n)][1]<2 and team[1] not in players[iter(n)]:
       players[iter(n)][1]+=1
@@ -35,7 +35,7 @@ def raffleling():
       breaksituation=allteams.copy()
       allteams.remove(team)
       n+=1
-      input("El equipo es: " + team[0].upper() + "!!!\n")
+      input('El equipo es: ' + team[0].upper() + '!!!\n')
     elif team in badteams and players[iter(n)][2]<2 and team[1] not in players[iter(n)]:
       players[iter(n)][2]+=1
       players[iter(n)].append(team)
@@ -43,15 +43,15 @@ def raffleling():
       breaksituation=allteams.copy()
       allteams.remove(team)
       n+=1
-      input("El equipo es: " + team[0].upper() + "!!!\n")
+      input('El equipo es: ' + team[0].upper() + '!!!\n')
     else:
-      print("El equipo {} no esta disponible para {}, sus equipos son {}\nTry it Again!!\n".format(team[0], players[iter(n)][0], players[iter(n)][-((len(players[iter(n)])-3)//2):]))
+      print('El equipo {} no esta disponible para {}, sus equipos son {}\nTry it Again!!\n'.format(team[0], players[iter(n)][0], players[iter(n)][-((len(players[iter(n)])-3)//2):]))
       repeated=True
       pass
     if team in breaksituation:
       breaksituation.remove(team)
     if len(breaksituation)==0 and len(allteams)!=0:
-      print("Lo siento, llegamos a un punto de no retorno, el jugador {} ya no puede elegir ninguno de los equipos restantes que son: {} \n\nEmpecemos de nuevo!!!\n\n".format(players[iter(n)], allteams))
+      print('Lo siento, llegamos a un punto de no retorno, el jugador {} ya no puede elegir ninguno de los equipos restantes que son: {} \n\nEmpecemos de nuevo!!!\n\n'.format(players[iter(n)], allteams))
       allteams = goodteams+badteams
       breaksituation = allteams.copy()
       reset_players()
@@ -93,20 +93,20 @@ def read_answer(question, fn):
       decision == 'N'
       or decision == 'NO'
     ):
-        print("Ok")
+        print('Ok')
         return False
     else:
-      print("Respuesta Invalida, intentalo de nuevo\n")
+      print('Respuesta Invalida, intentalo de nuevo\n')
       continue
 
 if __name__ == '__main__':
-  read_answer('Deseas rifar el orden de los jugadores?(S/n)', raffle_players)
-  raffle_done = read_answer('Deseas iniciar la rifa?(S/n)', raffleling)
+  read_answer('Deseas rifar el orden de los jugadores?(S/n)\n', raffle_players)
+  raffle_done = read_answer('Deseas iniciar la rifa?(S/n)\n', raffleling)
 
   if raffle_done:
-    print("\n ############# THE FINAL LIST!! #############\n")
+    print('\n ############# THE FINAL LIST!! #############\n')
     for n in range(len(players)):
-      print("Los equipos para {} son:\n{},{},{} and {}.\n".format(players[n][0], players[n][7][0],players[n][8][0],players[n][9][0],players[n][10][0]))
+      print('Los equipos para {} son:\n{},{},{} and {}.\n'.format(players[n][0], players[n][7][0],players[n][8][0],players[n][9][0],players[n][10][0]))
 
   exit
 
