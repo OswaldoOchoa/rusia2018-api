@@ -12,7 +12,6 @@ players = [
     ['Charly',0,0]
 ]
 
-
 def raffleling():
   global players
   goodteams = [['Rusia','A'], ['Uruguay', 'A'], ['Espana', 'B'], ['Portugal', 'B'], ['Francia', 'C'], ['Dinamarca', 'C'], ['Argentina', 'D'], ['Croacia', 'D'], ['Brasil', 'E'], ['Suiza', 'E'], ['Alemania', 'F'], ['Mexico', 'F'], ['Belgica', 'G'], ['Inglaterra', 'G'], ['Colombia', 'H'], ['Polonia','H']]
@@ -59,6 +58,16 @@ def raffleling():
       raffleling()
       break
 
+def raffle_players():
+  print('--PLAYERS--')
+  shuffle(players)
+  print_list(players)
+  print('\nEL SIGUIENTE ORDEN ES EL BUENO....')
+  print('--PLAYERS--')
+  shuffle(players)
+  print_list(players)
+  input('Presiona cualquier tecla para continuar')
+
 def reset_players():
   global players
   m=0
@@ -70,36 +79,34 @@ def print_list(list):
   for element in list:
     print(element[0])
 
-decision = input('\nPresiona para rifar DOS veces el orden de los jugadores\n')
-while True:
-  if decision.upper() == 'S' or 'SI':
-    shuffle(players)
-    print('--PLAYERS--')
-    print_list(players)
-    shuffle(players)
-    print('\nEL SIGUIENTE ORDEN ES EL BUENO....\n--PLAYERS--')
-    print_list(players)
-    input()
-    break
-  elif decision.upper() == 'N' or 'NO':
-    print("Ok")
-    break
-  else:
-    decision = input("Respuesta Invalida, intentalo de nuevo?\n")
-
-
-if decision.upper() == 'S' or 'SI':
-  raffle = input("Presiona para iniciar la rifa\n")
+def read_answer(question, fn):
   while True:
-    if raffle.upper() == 'S' or 'SI':
-      raffleling()
-      print("\n THE FINAL LIST!!\n")
-      for n in range(len(players)):
-        print("Los equipos para {} son:\n{},{},{} and {}.\n".format(players[n][0], players[n][7][0],players[n][8][0],players[n][9][0],players[n][10][0]))
-      break
-    elif raffle.upper() == 'N' or 'NO':
-      print("Ok")
-      break
+    decision = input(question).upper()
+    if (
+        decision == 'S'
+        or decision == 'SI'
+        or decision == ''
+    ):
+        fn()
+        return True
+    elif (
+      decision == 'N'
+      or decision == 'NO'
+    ):
+        print("Ok")
+        return False
     else:
-      raffle = input("Respuesta Invalida, intentalo de nuevo [Si/No]?\n")
+      print("Respuesta Invalida, intentalo de nuevo\n")
       continue
+
+if __name__ == '__main__':
+  read_answer('Deseas rifar el orden de los jugadores?(S/n)', raffle_players)
+  raffle_done = read_answer('Deseas iniciar la rifa?(S/n)', raffleling)
+
+  if raffle_done:
+    print("\n ############# THE FINAL LIST!! #############\n")
+    for n in range(len(players)):
+      print("Los equipos para {} son:\n{},{},{} and {}.\n".format(players[n][0], players[n][7][0],players[n][8][0],players[n][9][0],players[n][10][0]))
+
+  exit
+
