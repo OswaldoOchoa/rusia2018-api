@@ -1,4 +1,5 @@
 import json
+import subprocess
 from random import shuffle, choice
 
 #Utils
@@ -20,8 +21,12 @@ def write_json(filePath, data):
 
 #Raffle
 def run_one_round():
-  for i in range(1, 9):
-    start(i)
+  user_list = raffle_contenders()
+  for user in user_list:
+    done = raffle(user["id"])
+    if not done:
+      return False
+  return True
 
 def raffle_contenders():
   with open("users.json", "r") as file:
@@ -30,9 +35,12 @@ def raffle_contenders():
   users_list = data["users"]
   shuffle(users_list)
   print_contenders_order(users_list)
+  print('----------------------------')
 
   with open("users.json", "w") as file:
     json.dump(data, file, indent=2*" ")
+
+  return users_list
 
 def valid_group(group, isFavorite):
   teams_list = [team for team in group
@@ -67,25 +75,27 @@ def choose_group(user_data, groups_list):
   user = user_data["user"]
   isFavorite = user_data["favorite"]
   open_groups = [group for group in groups_list if not group["closed"]]
+  available_groups = [group for group in open_groups if group["letter"] not in user["groups"] and valid_group(group, isFavorite)]
 
-  if (len(open_groups) == 1):
-    return open_groups[0]
-
-  group_chosen = choice(open_groups)
-
-  while(
-    group_chosen["letter"] in user["groups"]
-    or not valid_group(group_chosen, isFavorite)
-  ):
-    group_chosen = choice(open_groups)
-
-  return group_chosen
+  groups_qty = len(available_groups)
+  if groups_qty == 0:
+    print("---------------------------------------------")
+    print("########ERROR: Can't continue, restarting...")
+    print("########USER:")
+    print_pretty_dict(user)
+    print("########OPEN GROUPS:")
+    print_pretty_dict(open_groups)
+    print("---------------------------------------------")
+    return False
+  elif groups_qty == 1:
+    return available_groups[0]
+  else:
+    return choice(available_groups)
 
 def choose_team(user_data, group):
   isFavorite = user_data["favorite"]
 
   teams_list = [team for team in group["teams"] if not team["picked"] and team["favorite"] == isFavorite]
-
   team_chosen = choice(teams_list)
 
   return team_chosen
@@ -98,7 +108,7 @@ def verify_group(group):
     group["closed"] = True
     return True
 
-def start(user_id):
+def raffle(user_id):
   try:
     data_groups = read_json("groups.json")
     groups_list = data_groups["groups"]
@@ -110,6 +120,10 @@ def start(user_id):
     user = user_data["user"]
 
     group_chosen = choose_group(user_data, groups_list)
+
+    if group_chosen == False:
+      return False
+
     user["groups"].append(group_chosen["letter"])
 
     team_chosen = choose_team(user_data, group_chosen)
@@ -123,10 +137,20 @@ def start(user_id):
 
     write_json("groups.json", data_groups)
     write_json("users.json", data_users)
+
+    return True
   except Exception as ex:
     print(ex)
+    return False
+
+def run():
+  subprocess.call(['./reset.sh'])
+  for i in range(4):
+    valid_round = run_one_round()
+    if not valid_round:
+      break
+  if not valid_round:
+    run()
 
 if __name__ == "__main__":
-  free_teams = 32
-  for i in range(4):
-    run_one_round()
+  run()
