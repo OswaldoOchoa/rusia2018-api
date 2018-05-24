@@ -29,39 +29,42 @@ def raffleling():
 
   all_teams = good_teams + bad_teams
   break_situation = all_teams.copy()
-  iterator = lambda x: x % len(players)
+  get_user_id = lambda x: x % len(players)
   picked_teams = 0
   repeated = False
 
   while len(all_teams) != 0 or len(break_situation) != 0:
+    current_player = players[get_user_id(picked_teams)]
+    player_name = current_player[0]
+
     if repeated:
       repeated = False
       input('Presiona Enter')
     else:
-      input('El siguiente equipo es para: ' + players[iterator(picked_teams)][0])
+      input('El siguiente equipo es para: ' + player_name)
 
     team = choice(all_teams)
 
     if (
       team in good_teams
-      and players[iterator(picked_teams)][1]<2
-      and team[1] not in players[iterator(picked_teams)]
+      and current_player[1]<2
+      and team[1] not in current_player
     ):
-      players[iterator(picked_teams)][1]+= 1
-      players[iterator(picked_teams)].append(team)
-      players[iterator(picked_teams)].insert(3, team[1])
+      current_player[1]+= 1
+      current_player.append(team)
+      current_player.insert(3, team[1])
       break_situation=all_teams.copy()
       all_teams.remove(team)
       picked_teams += 1
       input('El equipo es: ' + team[0].upper() + '!!!\n')
     elif (
       team in bad_teams
-      and players[iterator(picked_teams)][2]<2
-      and team[1] not in players[iterator(picked_teams)]
+      and current_player[2]<2
+      and team[1] not in current_player
     ):
-      players[iterator(picked_teams)][2]+= 1
-      players[iterator(picked_teams)].append(team)
-      players[iterator(picked_teams)].insert(3, team[1])
+      current_player[2]+= 1
+      current_player.append(team)
+      current_player.insert(3, team[1])
       break_situation=all_teams.copy()
       all_teams.remove(team)
       picked_teams += 1
@@ -70,8 +73,8 @@ def raffleling():
       print(
         'El equipo {} no esta disponible para {}, sus equipos son {}\nTry it Again!!\n'.format(
         team[0],
-        players[iterator(picked_teams)][0],
-        players[iterator(picked_teams)][-((len(players[iterator(picked_teams)])-3)//2):])
+        player_name,
+        current_player[-((len(current_player)-3)//2):])
       )
       repeated=True
 
@@ -80,8 +83,8 @@ def raffleling():
 
     if len(break_situation) == 0 and len(all_teams) != 0:
       print(
-        'El jugador {} ya no puede elegir ninguno de los equipos restantes: {} \n\nEmpecemos de nuevo!!!\n\n'.format(
-        players[iterator(picked_teams)],
+        '\n-#### \n-#### El jugador {} ya no puede elegir ninguno de los equipos restantes: {} \n\nEmpecemos de nuevo!!!\n\n'.format(
+        current_player,
         all_teams)
       )
       all_teams = good_teams + bad_teams
