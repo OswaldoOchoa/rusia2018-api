@@ -1,0 +1,60 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Yager",
+      "avatar": "https://api.adorable.io/avatars/184/",
+      "teams": [],
+      "groups": []
+    },
+    {
+      "id": 2,
+      "name": "Nere",
+      "avatar": "https://api.adorable.io/avatars/184/",
+      "teams": [],
+      "groups": []
+    },
+    {
+      "id": 3,
+      "name": "Paulina",
+      "avatar": "https://api.adorable.io/avatars/184/",
+      "teams": [],
+      "groups": []
+    },
+    {
+      "id": 4,
+      "name": "Cotty",
+      "avatar": "https://api.adorable.io/avatars/184/",
+      "teams": [],
+      "groups": []
+    },
+    {
+      "id": 5,
+      "name": "Otoniel",
+      "avatar": "https://api.adorable.io/avatars/184/",
+      "teams": [],
+      "groups": []
+    },
+    {
+      "id": 6,
+      "name": "Aldo",
+      "avatar": "https://api.adorable.io/avatars/184/",
+      "teams": [],
+      "groups": []
+    },
+    {
+      "id": 7,
+      "name": "Eddy",
+      "avatar": "https://api.adorable.io/avatars/184/",
+      "teams": [],
+      "groups": []
+    },
+    {
+      "id": 8,
+      "name": "Lupita",
+      "avatar": "https://api.adorable.io/avatars/184/",
+      "teams": [],
+      "groups": []
+    }
+  ]
+}
