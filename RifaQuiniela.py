@@ -14,50 +14,80 @@ players = [
 
 def raffleling():
   global players
-  good_teams = [['Rusia','A'], ['Uruguay', 'A'], ['Espana', 'B'], ['Portugal', 'B'], ['Francia', 'C'], ['Dinamarca', 'C'], ['Argentina', 'D'], ['Croacia', 'D'], ['Brasil', 'E'], ['Suiza', 'E'], ['Alemania', 'F'], ['Mexico', 'F'], ['Belgica', 'G'], ['Inglaterra', 'G'], ['Colombia', 'H'], ['Polonia','H']]
-  bad_teams = [['Arabia Saudi','A'], ['Egipto', 'A'], ['Marruecos', 'B'], ['Ri de Iran', 'B'], ['Australia', 'C'], ['Peru', 'C'], ['Islandia', 'D'], ['Nigeria', 'D'], ['Costa Rica', 'E'], ['Serbia', 'E'], ['Suecia', 'F'], ['Republica de Corea', 'F'], ['Tunez', 'G'], ['Panama', 'G'], ['Senegal', 'H'], ['Japon','H']]
-  all_teams = good_teams+bad_teams
+  good_teams = [
+    ['Rusia','A'], ['Uruguay', 'A'], ['Espana', 'B'], ['Portugal', 'B'],
+    ['Francia', 'C'], ['Dinamarca', 'C'], ['Argentina', 'D'], ['Croacia', 'D'],
+    ['Brasil', 'E'], ['Suiza', 'E'], ['Alemania', 'F'], ['Mexico', 'F'],
+    ['Belgica', 'G'], ['Inglaterra', 'G'], ['Colombia', 'H'], ['Polonia','H']
+  ]
+  bad_teams = [
+    ['Arabia Saudi','A'], ['Egipto', 'A'], ['Marruecos', 'B'], ['Ri de Iran', 'B'],
+    ['Australia', 'C'], ['Peru', 'C'], ['Islandia', 'D'], ['Nigeria', 'D'],
+    ['Costa Rica', 'E'], ['Serbia', 'E'], ['Suecia', 'F'], ['Republica de Corea', 'F'],
+    ['Tunez', 'G'], ['Panama', 'G'], ['Senegal', 'H'], ['Japon','H']
+  ]
+
+  all_teams = good_teams + bad_teams
   break_situation = all_teams.copy()
-  iterator = lambda x: x % len(players)
+  get_user_id = lambda x: x % len(players)
   picked_teams = 0
   repeated = False
 
   while len(all_teams) != 0 or len(break_situation) != 0:
+    current_player = players[get_user_id(picked_teams)]
+    player_name = current_player[0]
+
     if repeated:
       repeated = False
       input('Presiona Enter')
     else:
-      input('El siguiente equipo es para: ' + players[iterator(picked_teams)][0])
+      input('El siguiente equipo es para: ' + player_name)
 
     team = choice(all_teams)
 
-    if team in good_teams and players[iterator(picked_teams)][1]<2 and team[1] not in players[iterator(picked_teams)]:
-      players[iterator(picked_teams)][1]+= 1
-      players[iterator(picked_teams)].append(team)
-      players[iterator(picked_teams)].insert(3, team[1])
+    if (
+      team in good_teams
+      and current_player[1]<2
+      and team[1] not in current_player
+    ):
+      current_player[1]+= 1
+      current_player.append(team)
+      current_player.insert(3, team[1])
       break_situation=all_teams.copy()
       all_teams.remove(team)
-      picked_teams+= 1
+      picked_teams += 1
       input('El equipo es: ' + team[0].upper() + '!!!\n')
-    elif team in bad_teams and players[iterator(picked_teams)][2]<2 and team[1] not in players[iterator(picked_teams)]:
-      players[iterator(picked_teams)][2]+= 1
-      players[iterator(picked_teams)].append(team)
-      players[iterator(picked_teams)].insert(3, team[1])
+    elif (
+      team in bad_teams
+      and current_player[2]<2
+      and team[1] not in current_player
+    ):
+      current_player[2]+= 1
+      current_player.append(team)
+      current_player.insert(3, team[1])
       break_situation=all_teams.copy()
       all_teams.remove(team)
-      picked_teams+= 1
+      picked_teams += 1
       input('El equipo es: ' + team[0].upper() + '!!!\n')
     else:
-      print('El equipo {} no esta disponible para {}, sus equipos son {}\nTry it Again!!\n'.format(team[0], players[iterator(picked_teams)][0], players[iterator(picked_teams)][-((len(players[iterator(picked_teams)])-3)//2):]))
+      print(
+        'El equipo {} no esta disponible para {}, sus equipos son {}\nTry it Again!!\n'.format(
+        team[0],
+        player_name,
+        current_player[-((len(current_player)-3)//2):])
+      )
       repeated=True
-      pass
 
     if team in break_situation:
       break_situation.remove(team)
 
-    if len(break_situation)== 0 and len(all_teams) != 0:
-      print('Lo siento, llegamos a un punto de no retorno, el jugador {} ya no puede elegir ninguno de los equipos restantes que son: {} \n\nEmpecemos de nuevo!!!\n\n'.format(players[iterator(picked_teams)], all_teams))
-      all_teams = good_teams+bad_teams
+    if len(break_situation) == 0 and len(all_teams) != 0:
+      print(
+        '\n-#### \n-#### El jugador {} ya no puede elegir ninguno de los equipos restantes: {} \n\nEmpecemos de nuevo!!!\n\n'.format(
+        current_player,
+        all_teams)
+      )
+      all_teams = good_teams + bad_teams
       break_situation = all_teams.copy()
       reset_players()
       raffleling()
@@ -66,11 +96,11 @@ def raffleling():
 def raffle_players():
   print('--PLAYERS--')
   shuffle(players)
-  print_list(players)
+  print_players_name(players)
   print('\nEL SIGUIENTE ORDEN ES EL BUENO....\n')
   print('--PLAYERS--')
   shuffle(players)
-  print_list(players)
+  print_players_name(players)
   input('----------------------------------------')
 
 def reset_players():
@@ -80,7 +110,7 @@ def reset_players():
     players[m]=[n[0],0,0]
     m+=1
 
-def print_list(list):
+def print_players_name(list):
   for element in list:
     print(element[0])
 
@@ -111,7 +141,14 @@ if __name__ == '__main__':
   if raffle_done:
     print('\n ############# THE FINAL LIST!! #############\n')
     for n in range(len(players)):
-      print('Los equipos para {} son:\n{},{},{} and {}.\n'.format(players[n][0], players[n][7][0],players[n][8][0],players[n][9][0],players[n][10][0]))
+      print(
+        'Los equipos para {} son:\n{},{},{} and {}.\n'.format(
+        players[n][0],
+        players[n][7][0],
+        players[n][8][0],
+        players[n][9][0],
+        players[n][10][0])
+      )
 
   exit
 
